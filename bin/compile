@@ -35,6 +35,7 @@ source $BP_DIR/lib/environment.sh
 source $BP_DIR/lib/binaries.sh
 source $BP_DIR/lib/cache.sh
 source $BP_DIR/lib/dependencies.sh
+source $BP_DIR/lib/kandy-modules.sh
 
 ### Handle errors
 
@@ -122,6 +123,7 @@ build_dependencies() {
     echo "Prebuild detected (node_modules already exists)"
     rebuild_node_modules "$BUILD_DIR"
   else
+    download_kandy_modules "$BUILD_DIR"
     install_node_modules "$BUILD_DIR"
   fi
 }
